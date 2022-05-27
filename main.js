@@ -1,6 +1,9 @@
 let cartes = document.querySelectorAll(".carte_header");
 let slides = document.querySelectorAll(".silde");
+let menu = document.querySelector(".main_menu");
 let index = 0;
+let paralaxe = document.querySelector(".contener_games");
+let btns = document.querySelectorAll(".btn");
 
 /**
  * 
@@ -29,3 +32,23 @@ function canSlide(){
     verefication(cartes)
 }
 canSlide();
+
+window.addEventListener("scroll", e =>{
+    if(scrollY > 36){
+        menu.classList.add("active");
+    }
+    else{
+        menu.classList.remove("active")
+    }
+    // console.log(scrollY);
+})
+btns.forEach(btn =>{
+    btn.addEventListener("click", () =>{
+       console.log(paralaxe);
+      if(btn.classList.contains("slide-left")){
+          paralaxe.classList.add("left");
+      }else{
+          paralaxe.classList.remove("left")
+      }
+    })
+})

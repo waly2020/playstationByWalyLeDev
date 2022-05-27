@@ -25,22 +25,29 @@ header{
     width: 90.3px;
 }
 .main_menu{
+    position: relative;
     background-color: #fff;
     width: 100%;
     height: 65px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
+}
+.main_menu.active{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 .main_menu a{
     color: #444;
+    font-size: 0.9em;
     text-decoration: none;
 }
 .logo{
     width: 50px;
     height: 50px;
     display: inline-block;
-    /* background-color: orange; */
 }
 .logo > img{
     width: 100%;
@@ -70,16 +77,17 @@ header{
     border-radius: 15px;
 }
 .block_rech_connexion .rech{
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
     background: url("images/searchmagnifierinterfacesymbol1_79893.png");
+    background-size: cover;
 }
 .slides{
     position: absolute;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* background-color: orange; */
 }
 .slides > div{
     position: absolute;
@@ -267,7 +275,6 @@ header{
     height: 750px;
     background: url("images/24479.jpg");
     background-size: cover;
-    margin: 30px 0;
 }
 .p1 .img_prod{
     background: url("images/Playstation-5-maroc.png");
@@ -395,4 +402,376 @@ header{
     background: url("images/creator-stories-returnal-how-we-made-selene-image-block-05-ps5-en-17mar22.webp");
     background-size: cover;
     background-position: top;
+}
+.elden_section{
+    width: 100%;
+    height: 1382px;
+    display: grid;
+    grid-template-rows: 760px 1fr;
+}
+.elden{
+    position: relative;
+    background: url("images/elden-ring-hero-banner-desktop-01-en-24jan22.webp");
+    background-size: cover;
+    background-position: center;
+}
+.contenu{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,rgba(0, 0, 0, 0.884) 10%,rgba(0, 0, 0, 0.233));
+}
+.texte_elden{
+    /* position: absolute; */
+    margin: 300px auto;
+    width: 880px;
+}
+.img_elden{
+    width: 400px;
+    height: 130px;
+    background: url("images/1653416683456.png");
+    background-size: cover;
+    background-position: center;
+}
+.texte_elden h2{
+    font-size: 2.3em;
+    line-height: 40px;
+    margin: 20px 20px;
+    color: #fff;
+}
+.texte_elden p{
+    color: #fff;
+    width: 60%;
+    line-height: 23px;
+    margin: 20px 20px;
+}
+.texte_elden button{
+    padding: 10px 17px;
+    border: none;
+    background-color: #fff;
+    font-weight: bold;
+    color: #222;
+    border-radius: 20px;
+    margin-left: 20px;
+    display: inline-block;
+}
+.new_game{
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+}
+.new_game_main{
+    position: relative;
+    width: 880px;
+    height: 100%;
+    margin: auto;
+}
+.new_game_main::after,.new_game_main::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    z-index: 1000;
+}
+.new_game_main::after{
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.863);
+    transform: translateX(100%);
+}
+.new_game_main::before{
+    background-color: rgba(0, 0, 0, 0.959);
+    transform: translateX(-100%);
+}
+.section_games{
+    width: 880px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: 100px repeat(2,200px);
+    gap: 20px;
+}
+.btn_slide{
+    position: absolute;
+    z-index: 3;
+    width: 102px;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    right: 8px;
+    top: 8px;
+}
+.btn_slide > div{
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: none;
+}
+.btn:hover{
+    box-shadow: 0 0 0 3px #000,
+                0 0 0 7px #fff;
+}
+.contener_games{
+    width: 1780px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    transition: .5s;
+    transform: translateX(0);
+}
+.contener_games.left{
+    transform: translateX(-890px);
+}
+.btn img{
+    width: 20px;
+    height: 20px;
+}
+.slide-left{
+    transform: rotate(90deg);
+}
+.slide-right{
+    transform: rotate(-90deg);
+}
+.para_game{
+    grid-column: 1 / span 6;
+}
+.article{
+    cursor: pointer;
+}
+.article p{
+    margin: 10px 5px 0 5px;
+    color: #fff;
+    font-weight: bold;
+}
+.img_article{
+    width: 100%;
+    height: 130px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.para_game{
+    color: #aaa;
+    line-height: 30px;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+.para_game .titre{
+    color: #fff;
+}
+/* ----------- discover ------------------- */
+.discover{
+    width: 880px;
+    height: 580px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 150px 1fr;
+    gap: 15px;
+    margin: 60px auto;
+}
+.texte_disco{
+    grid-column: 1/ span 3;
+    text-align: center;
+}
+.texte_disco h2{
+    font-size: 2em;
+    color: #777;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+.texte_disco p{
+    color: #555;
+    line-height: 28px;
+}
+.img_aricle{
+    width: 100%;
+    height: 180px;
+    margin-bottom: 10px;
+}
+.da_1 .img_aricle{
+    background: url("images/ps4-slim-homepage-image-block-04-en-09oct20.webp");
+    background-size: cover;
+}
+.da_2 .img_aricle{
+    background: url("images/double11-202010-tw-psvr.webp");
+    background-size: cover;
+}
+.da_3 .img_aricle{
+    background: url("images/dualshock-4-listing-thumb-01-ps4-en-12oct20.webp");
+    background-size: cover;
+}
+.article_disco h2{
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 300;
+    color: #444;
+}
+.article_disco p{
+    line-height: 25px;
+    font-size: 17px;
+    color: #555;
+    margin: 8px 0;
+}
+.article_disco button,.blue{
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+    background-color: royalblue;
+    font-weight: bold;
+    margin: 10px 0;
+}
+/* ---------------------- */
+.annonce{
+    width: 100%;
+    height: 378px;
+    margin-bottom: 40px;
+    background: url("images/ps-plus-this-month-on-plus-background-desktop-en-02-25mar21.webp");
+    background-size: contain;
+    background-position: -760px -40px;
+}
+.contenu_img{
+    width: 910px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.contenu_img > img{
+    height: 100%;
+    display: inline-block;
+}
+.texte_annonce{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+.logo_annoce{
+    height: 80px;
+    width: 70%;
+    margin-bottom: 8px;
+    background: url("images/ps-plus-logo-two-column-01-ps4-eu-05feb19.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.texte_annonce p{
+    color: rgb(8, 8, 8);
+    line-height: 25px;
+    margin: 18px 0;
+}
+.texte_annonce button{
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    color: royalblue;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.texte_promo{
+    width: 280px;
+}
+.texte_promo h2{
+    font-size: 2.5em;
+    font-weight: 200;
+    line-height: 50px;
+    margin-bottom: 20px;
+}
+.texte_promo p{
+    width: 79%;
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+.promotion{
+    width: 880px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.section_reseaux{
+    width: 100%;
+    height: 410px;
+    background-color: #aaa;
+}
+.reseaux{
+    width: 880px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 90px 1.5fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+}
+.reseaux h2{
+    grid-column: 1 / span 4;
+    font-weight: 400;
+    font-size: 2em;
+    color: #222;
+}
+footer{
+    width: 100%;
+    height: 679px;
+    background-color: #00439c;
+}
+.contenu_footer{
+    width: 880px;
+    height: 100%;
+    display: grid;
+    grid-template-columns:  repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    margin: auto;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+}
+.links li{
+    list-style-type: none;
+    margin: 10px 0;
+}
+.links a{
+    text-decoration: none;
+    color: #fff;
+    /* font-size: 0.7em; */
+}
+.texte_footer{
+    grid-column: 1 / span 2;
+}
+.footer_image{
+    width: 180px;
+}
+.texte_footer p{
+    color: #fff;
+    line-height: 30px;
+}
+.texte_footer a{
+    color: #fff;
+    font-size: 0.9em;
+}
+.contenu_footer > div {
+    padding-top: 30px;
+}
+.para{
+    color: #fff;
+}
+.icone_earth{
+    width: 20px;
+    height: 20px;
+    background: url("images/earthglobe_102678.svg");
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    margin-right: 10px;
 }
