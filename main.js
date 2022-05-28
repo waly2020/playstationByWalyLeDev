@@ -4,6 +4,9 @@ let menu = document.querySelector(".main_menu");
 let index = 0;
 let paralaxe = document.querySelector(".contener_games");
 let btns = document.querySelectorAll(".btn");
+let links = document.querySelectorAll(".link");
+let sous_menu = document.querySelector(".sous-menu");
+let img_link = document.querySelectorAll(".img_link");
 
 /**
  * 
@@ -29,18 +32,17 @@ function canSlide(){
         index = 1;
     };
     verefication(slides);
-    verefication(cartes)
+    verefication(cartes);
 }
 canSlide();
 
-window.addEventListener("scroll", e =>{
+window.addEventListener("scroll", () =>{
     if(scrollY > 36){
         menu.classList.add("active");
     }
     else{
         menu.classList.remove("active")
     }
-    // console.log(scrollY);
 })
 btns.forEach(btn =>{
     btn.addEventListener("click", () =>{
@@ -52,3 +54,33 @@ btns.forEach(btn =>{
       }
     })
 })
+
+links.forEach(link =>{
+    link.addEventListener("click", () =>{
+
+        for(let i = 0; i < img_link.length; i++){
+
+            let img = img_link[i];
+
+            if(link.getAttribute("data-sous") == img.getAttribute("data-sous")){
+                img.classList.toggle("active"); 
+            }
+            // else{
+            //     img.classList.remove("active");
+            // }
+
+        }
+        sous_menu.classList.toggle("active")
+    })
+})
+// function canDisplay(){
+//     for(let i = img_link.length; i > 0; i++){
+//         let img = img_link[i];
+//         if(img.classList.contains("active")){
+//             sous_menu.classList.add("active")
+//         }
+//         else{
+//             sous_menu.classList.remove("active");
+//         }
+//     }
+// }

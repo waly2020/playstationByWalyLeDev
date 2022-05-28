@@ -39,11 +39,27 @@ header{
     top: 0;
     z-index: 1000;
 }
-.main_menu a{
+.main_menu p{
     color: #444;
     font-size: 0.9em;
-    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
 }
+/* sous menu */
+.sous-menu{
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    background-color: #fff;
+    top: 0;
+    transform: translateY(-100%);
+    transition: .4s;
+    z-index: 950;
+}
+.sous-menu.active{
+    transform: translateY(98px);
+}
+/* fin sous menu */
 .logo{
     width: 50px;
     height: 50px;
@@ -56,6 +72,17 @@ header{
 .links_logo{
     display: flex;
     align-items: center;
+    padding-left: 10px;
+}
+.links_logo > p > img{
+    width: 11px;
+    height: 11px;
+    margin-left: 4px;
+    transform: rotate(0deg);
+    transition: .5s;
+}
+.img_link.active{
+    transform: rotate(180deg);
 }
 .block_rech_connexion{
     display: flex;
@@ -64,6 +91,9 @@ header{
 }
 .links_logo > *{
     margin: 0 10px;
+}
+.links_logo > p{
+    padding: 8px 2px;
 }
 .block_rech_connexion > *{
     display: inline-block;
@@ -471,7 +501,7 @@ header{
     top: 0;
     width: 40%;
     height: 100%;
-    z-index: 1000;
+    z-index: 900;
 }
 .new_game_main::after{
     right: 0;
@@ -740,6 +770,7 @@ footer{
 .links li{
     list-style-type: none;
     margin: 10px 0;
+    font-size: 15px;
 }
 .links a{
     text-decoration: none;
@@ -765,10 +796,11 @@ footer{
 }
 .para{
     color: #fff;
+    font-size: 13px;
 }
 .icone_earth{
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     background: url("images/earthglobe_102678.svg");
     background-position: center;
     background-size: cover;
