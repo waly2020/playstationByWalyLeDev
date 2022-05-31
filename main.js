@@ -7,6 +7,7 @@ let btns = document.querySelectorAll(".btn");
 let links = document.querySelectorAll(".link");
 let sous_menu = document.querySelector(".sous-menu");
 let img_link = document.querySelectorAll(".img_link");
+let onglets = document.querySelectorAll(".onglet");
 
 /**
  * 
@@ -65,12 +66,16 @@ links.forEach(link =>{
             if(link.getAttribute("data-sous") == img.getAttribute("data-sous")){
                 img.classList.toggle("active"); 
             }
-            // else{
-            //     img.classList.remove("active");
-            // }
 
         }
-        sous_menu.classList.toggle("active")
+        sous_menu.classList.toggle("active");
+        for(let i = 0; i < onglets.length; i++){
+            let onglet = onglets[i];
+            onglet.classList.remove("active");
+            if(link.getAttribute("data-sous") == onglet.getAttribute("data-sous")){
+                onglet.classList.add("active");
+            }
+        }
     })
 })
 // function canDisplay(){

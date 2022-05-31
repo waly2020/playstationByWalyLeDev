@@ -1,3 +1,15 @@
+@font-face {
+    font-family: "light";
+    src: url("fonts/SSTLight.TTF") format("truetype");
+}
+@font-face {
+    font-family: "bold";
+    src: url("fonts/SSTBold.TTF") format("truetype");
+}
+@font-face {
+    font-family: "medium";
+    src: url("fonts/SSTMedium.TTF") format("truetype");
+}
 *,::before,::after{
     margin: 0;
     padding: 0;
@@ -5,7 +17,15 @@
 }
 body{
     min-height: 100vh;
-    font-family: sans-serif;
+}
+h1{
+    font-family: "bold", cursive;
+}
+p{
+    font-family: "medium", cursive;
+}
+h2{
+    font-family: "light", cursive;
 }
 header{
     position: relative;
@@ -41,6 +61,7 @@ header{
 }
 .main_menu p{
     color: #444;
+    font-family: "light";
     font-size: 0.9em;
     display: inline-block;
     cursor: pointer;
@@ -48,16 +69,134 @@ header{
 /* sous menu */
 .sous-menu{
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 150px;
+    height: 230px;
     background-color: #fff;
     top: 0;
     transform: translateY(-100%);
     transition: .4s;
+    box-shadow: 0 5px 15px #555;
     z-index: 950;
 }
+.sous-menu::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #aaa;
+    top: 0;
+    left: 0;
+    transform: translateY(159px);
+}
 .sous-menu.active{
-    transform: translateY(98px);
+    transform: translateY(65px);
+}
+.onglet{
+    position: absolute;
+    opacity: 0;
+    width: 1010px;
+    height: 100%;
+    background-color: #FFF;
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    /* background-color: #00439c; */
+}
+.onlet_header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.onglet_footer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.onglet_footer p{
+    position: relative;
+    padding: 3px 10px;
+    /* min-width: 150px; */
+    font-weight: bold;
+    margin: 0 20px;
+    font-family: "light";
+    text-align: center;
+}
+.onglet_footer p::before{
+    position: absolute;
+    content: "";
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    transform: translate(-10px,-50%);
+    border-radius: 50%;
+    background-color: #00439c;
+    left: 0;
+}
+.items{
+    width: 140px;
+    height: 128px;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+}
+.items p{
+    font-weight: bold;
+    font-family: "bold";
+}
+.onglet.active{
+    opacity: 1;
+}
+.para_desc{
+    text-align: center;
+}
+.o1 .item1 .item_img{
+    width: 100%;
+    height: 100%;
+    background: url("images/ps_5.png");
+    background-position: center;
+    background-size: 42%;
+    background-repeat: no-repeat;
+}
+.o1 .item2 .item_img{
+    width: 100%;
+    height: 100%;
+    background: url("images/ps_4.png");
+    background-position: center;
+    background-size: 42%;
+    background-repeat: no-repeat;
+}
+.o1 .item3 .item_img{
+    width: 100%;
+    height: 100%;
+    background: url("images/ps_vr.png");
+    background-position: center;
+    background-size: 42%;
+    background-repeat: no-repeat;
+}
+.o1 .item4 .item_img{
+    width: 100%;
+    height: 100%;
+    background: url("images/ps_direction.png");
+    background-position: center;
+    background-size: 42%;
+    background-repeat: no-repeat;
+}
+.o1 .item5 .item_img{
+    width: 100%;
+    height: 100%;
+    background: url("images/ps_now.png");
+    background-position: center;
+    background-size: 42%;
+    background-repeat: no-repeat;
+}
+.o1 .item6 .item_img{
+    width: 100%;
+    height: 100%;
+    background: url("images/ps_shop.png");
+    background-position: center;
+    background-size: 42%;
+    background-repeat: no-repeat;
 }
 /* fin sous menu */
 .logo{
@@ -205,7 +344,7 @@ header{
 }
 .consoles{
     width: 880px;
-    margin: 20px auto;
+    margin: 40px auto;
 }
 .button_slide{
     width: 100%;
@@ -218,11 +357,15 @@ header{
 .button_slide > div{
     border-radius: 10px;
     box-shadow: none;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 .carte_header.active{
     border: solid 5px royalblue;
     box-shadow: 0 0 0 3px #fff inset;
+}
+.carte_header:hover{
+    transform: translateY(-13px);
+    box-shadow: 0 7px 8px rgb(75, 75, 75);
 }
 .ch1{
     background: url("images/fifa-22-ps-plus-igc-homepage-hero-banner-desktop-01-ps4-ps5-en-14apr22.webp");
@@ -263,17 +406,18 @@ header{
 .texte_pub h2{
     font-size: 31px;
     font-weight: 400;
-    color: #888;
-    margin: 30px 0;
+    color: #333;
+    margin: 24px 0;
 }
 .texte_pub p{
     font-size: 20px;
-    line-height: 40px;
+    line-height: 32px;
     color: #555;
+    margin-bottom: 15px;
 }
 .texte_pub button{
     border: none;
-    background-color: #0022e6;
+    background-color: #2d64e6;
     color: #fff;
     border-radius: 25px;
     padding: 10px 15px;
@@ -381,17 +525,19 @@ header{
     color: #fff;
     line-height: 30px;
     margin: 40px 0;
-    font-weight: bold;
+    font-weight: 400;
+    color: #aaa;
 }
 .texte_new button{
     border: none;
     padding: 8px 10px;
     border-radius: 20px;
     background-color: #fff;
+    font-weight: bold;
     color: #000;
 }
 .texte_new .mince{
-    font-weight: 300;
+    font-weight: 100;
 }
 .games{
     width: 100%;
@@ -407,10 +553,10 @@ header{
 }
 .game p{
     color: #fff;
-    font-weight: bold;
     text-align: center;
-    margin: 30px 0 0 0;
-    line-height: 25px;
+    margin: 15px 0 0 0;
+    line-height: 20px;
+    font-size: 20px;
 }
 .img_game{
     width: 100%;
@@ -467,6 +613,7 @@ header{
     font-size: 2.3em;
     line-height: 40px;
     margin: 20px 20px;
+    font-weight: 400;
     color: #fff;
 }
 .texte_elden p{
@@ -544,7 +691,7 @@ header{
 }
 .btn:hover{
     box-shadow: 0 0 0 3px #000,
-                0 0 0 7px #fff;
+                0 0 0 5px #fff;
 }
 .contener_games{
     width: 1780px;
@@ -703,7 +850,7 @@ header{
     border: none;
     border-radius: 20px;
     background-color: #fff;
-    color: royalblue;
+    color: #2d64e6;
     font-weight: bold;
     margin: 20px 0;
 }
@@ -714,12 +861,14 @@ header{
     font-size: 2.5em;
     font-weight: 200;
     line-height: 50px;
+    color: #555;
     margin-bottom: 20px;
 }
 .texte_promo p{
     width: 79%;
     line-height: 30px;
     margin-bottom: 30px;
+    color: #777;
 }
 .promotion{
     width: 880px;
@@ -731,10 +880,10 @@ header{
 .section_reseaux{
     width: 100%;
     height: 410px;
-    background-color: #aaa;
+    background-color: #eee;
 }
 .reseaux{
-    width: 880px;
+    width: 550px;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -745,9 +894,9 @@ header{
 }
 .reseaux h2{
     grid-column: 1 / span 4;
-    font-weight: 400;
-    font-size: 2em;
-    color: #222;
+    font-weight: 100;
+    font-size: 1.8em;
+    color: #444;
 }
 footer{
     width: 100%;
